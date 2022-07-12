@@ -3,9 +3,6 @@ import {StyleSheet, Text, View } from 'react-native';
 export default function App() {
   return (
     <View style={styles.h}>
-      <Text style={styles.h_s}>
-        Bienvenido
-      </Text>
       <Text style={styles.h_s_g}>
         Gecko
       </Text>
@@ -22,21 +19,16 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     alignItems:'center'
   },
-  h_s: {
-    color:'white',
-    fontWeight:'bold',
-    fontSize:27,
-  },
   h_s_g: {
     color:'white',
     fontWeight:'bold',
-    fontSize:22,
+    fontSize:26,
   },
   h_s_t: {
     color:'white',
     textAlign:'center',
     paddingVertical:5,
-    fontSize:16,
+    fontSize:18,
     fontWeight:'bold'
   },
 });

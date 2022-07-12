@@ -55,10 +55,10 @@ export default function App() {
           <View style={styles.s_v}>
             <View style={styles.s_t}>
               <Text style={styles.s_t_t}>
-                Dolar {item.tipo}
+                DOLAR {item.tipo.toUpperCase()}
               </Text>
               <Text style={styles.s_t_t}>
-                Actualizacion hace {item.actualizacion} minutos
+                Actualizacion hace {item.actualizacion  + ` ${item.actualizacion > 60 ? 'hora' : 'minutos'}`}
               </Text>
             </View>
             <View style={styles.s_v_d}>
