@@ -4,7 +4,7 @@ export default function App() {
   const mockedValues = [
       {
         id: 0,
-        actualizacion:5,
+        actualizacion:'07/12 13:00',
         tipo: "oficial",
         valor: {
           compra: 126.75,
@@ -12,7 +12,7 @@ export default function App() {
         }
       },{
         id: 1,
-        actualizacion:5,
+        actualizacion:'07/12 13:00',
         tipo: "blue",
         valor: {
           compra: 263.00,
@@ -20,7 +20,7 @@ export default function App() {
         }
       },{
         id: 2,
-        actualizacion:5,
+        actualizacion:'07/12 13:00',
         tipo: "mep",
         valor: {
           compra: 285.54,
@@ -28,7 +28,7 @@ export default function App() {
         }
       },{
         id: 3,
-        actualizacion:5,
+        actualizacion:'07/12 13:00',
         tipo: "liqui",
         valor: {
           compra: 297.76,
@@ -36,11 +36,20 @@ export default function App() {
         }
       },{
         id: 4,
-        actualizacion:5,
+        actualizacion:'07/12 13:00',
         tipo: "solidario",
         valor: {
           compra: 237.76,
           venta: 218.55
+        }
+      },
+      {
+        id: 5,
+        actualizacion:'07/12 13:00',
+        tipo: "bitcoin",
+        valor: {
+          compra: 2317.76,
+          venta: 2128.55
         }
       }
     ]
@@ -58,7 +67,7 @@ export default function App() {
                 DOLAR {item.tipo.toUpperCase()}
               </Text>
               <Text style={styles.s_t_t}>
-                Actualizacion hace {item.actualizacion  + ` ${item.actualizacion > 60 ? 'hora' : 'minutos'}`}
+                {item.actualizacion}
               </Text>
             </View>
             <View style={styles.s_v_d}>
@@ -89,8 +98,8 @@ const styles = StyleSheet.create({
   s: {
     flex: 1,
     backgroundColor: '#fcfcfc',
-    borderTopEndRadius: 25,
-    borderTopLeftRadius: 25,
+    borderTopRightRadius: 16,
+    borderTopLeftRadius: 16,
   },
   s_v: {
     backgroundColor: '#f3f8fe',
@@ -110,7 +119,7 @@ const styles = StyleSheet.create({
     alignItems:'center',
     borderBottomWidth:0.2,
     marginTop:5,
-    paddingHorizontal:20
+    paddingHorizontal:44
   },
   s_t_t: {
     fontSize:14,

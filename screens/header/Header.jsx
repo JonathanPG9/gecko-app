@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View } from 'react-native';
+import {StyleSheet, Text, View, Image } from 'react-native';
 
 export default function App() {
   return (
@@ -9,26 +9,32 @@ export default function App() {
       <Text style={styles.h_s_t}>
         ¡ Cotizacion a tiempo real !
       </Text>
+      <Image style={styles.i} source={require('../../assets/pana.png')}/>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  i: {
+    width: 200,
+    height: 200,
+    position: 'absolute',
+    left:0,
+    top:13
+  },
   h: {
     flex: 0.25,
-    justifyContent:'center',
-    alignItems:'center'
+    alignItems:'center',
   },
   h_s_g: {
     color:'white',
     fontWeight:'bold',
-    fontSize:26,
+    fontSize:25,
+    marginTop:33
   },
   h_s_t: {
     color:'white',
-    textAlign:'center',
-    paddingVertical:5,
-    fontSize:18,
-    fontWeight:'bold'
+    fontSize:14,
+    fontWeight:'bold',
   },
 });
