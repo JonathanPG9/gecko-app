@@ -1,6 +1,7 @@
 import {FlatList, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
+import InfoSection from './InfoSection';
 
-export default function App() {
+export default function Section() {
   const mockedValues = [
       {
         id: 0,
@@ -70,22 +71,8 @@ export default function App() {
                 {item.actualizacion}
               </Text>
             </View>
-            <View style={styles.s_v_d}>
-              <Text style={{fontWeight:'bold'}}>
-                COMPRA
-              </Text>
-              <Text style={styles.s_t_v}>
-                ${item.valor.compra}
-              </Text>
-            </View>
-            <View style={styles.s_v_d}>
-              <Text style={{fontWeight:'bold'}}>
-                VENTA
-              </Text>
-              <Text style={styles.s_t_v}>
-                ${item.valor.venta}
-              </Text>
-            </View>
+            <InfoSection compra='COMPRA' valor={item.valor.compra}/>
+            <InfoSection venta='VENTA' valor={item.valor.venta}/>
           </View>
         </TouchableHighlight>
       )
@@ -97,43 +84,30 @@ export default function App() {
 const styles = StyleSheet.create({
   s: {
     flex: 1,
-    backgroundColor: '#fcfcfc',
-    borderTopRightRadius: 16,
-    borderTopLeftRadius: 16,
+    backgroundColor: '#FBF8F5',
+    borderTopRightRadius: 24,
+    borderTopLeftRadius: 24,
   },
   s_v: {
-    backgroundColor: '#f3f8fe',
+    backgroundColor: '#fff',
     marginHorizontal:20,
     marginTop:20,
-    flexWrap:'wrap',
     flexDirection:'row',
     justifyContent:'center',
     borderTopEndRadius: 25,
     borderTopLeftRadius: 25,
     borderBottomEndRadius:30,
-    marginBottom:10
+    marginBottom:10,
   },
   s_t: {
     position: 'absolute',
-    justifyContent:'center',
     alignItems:'center',
-    borderBottomWidth:0.2,
-    marginTop:5,
-    paddingHorizontal:44
+    borderBottomWidth:1,
+    marginTop:12,
+    paddingHorizontal:54
   },
   s_t_t: {
-    fontSize:14,
+    fontSize:13,
     fontWeight:'bold',
-  },
-  s_t_v: {
-    fontSize:14,
-    fontWeight:'bold',
-    color: '#22aa69'
-  },
-  s_v_d: {
-    marginTop:25,
-    paddingVertical:33,
-    flex:0.5,
-    alignItems:'center',
-  },
+  }
 });

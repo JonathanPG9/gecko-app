@@ -1,6 +1,6 @@
 import {StyleSheet, Text, View, Image } from 'react-native';
 
-export default function App() {
+export default function Header() {
   return (
     <View style={styles.h}>
       <Text style={styles.h_s_g}>
@@ -15,16 +15,14 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
+  h: {
+    flex: 0.25,
+    alignItems:'center',
+  },
   i: {
     width: 200,
     height: 200,
     position: 'absolute',
-    left:0,
-    top:13
-  },
-  h: {
-    flex: 0.25,
-    alignItems:'center',
   },
   h_s_g: {
     color:'white',
