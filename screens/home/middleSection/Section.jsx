@@ -1,5 +1,6 @@
 import {FlatList, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 import InfoSection from './InfoSection';
+import Paragraph from './Paragraph';
 
 export default function Section() {
   const mockedValues = [
@@ -64,12 +65,8 @@ export default function Section() {
         <TouchableHighlight>
           <View style={styles.s_v}>
             <View style={styles.s_t}>
-              <Text style={styles.s_t_t}>
-                DOLAR {item.tipo.toUpperCase()}
-              </Text>
-              <Text style={styles.s_t_t}>
-                {item.actualizacion}
-              </Text>
+              <Paragraph itemTipo={'DOLAR ' + item.tipo.toUpperCase()}/>
+              <Paragraph itemAct={item.actualizacion}/>
             </View>
             <InfoSection compra='COMPRA' valor={item.valor.compra}/>
             <InfoSection venta='VENTA' valor={item.valor.venta}/>

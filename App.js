@@ -1,5 +1,4 @@
 import Home from './screens/home/Home.jsx'
-import { StatusBar as expoStatusBar } from 'expo-status-bar';
 import Header from './screens/header/Header.jsx'
 import {StyleSheet, View, StatusBar} from 'react-native';
 
