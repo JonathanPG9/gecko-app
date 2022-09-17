@@ -1,8 +1,18 @@
 import {FlatList, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 import InfoSection from './InfoSection';
+import React,{ useEffect } from 'react';
 import Paragraph from './Paragraph';
+import Utils from '../../../utils/utils.js'
 
-export default function Section({data}) {
+export default function Section({data, setData, setIsLoaded}) {
+
+  useEffect(() => {
+    const reCalling = setInterval(() => {
+      Utils.callApi(setData,setIsLoaded);
+    },300000);
+    return () => clearInterval(reCalling);
+  }, []);
+
   return (
     <FlatList style={styles.s}
     data={data}

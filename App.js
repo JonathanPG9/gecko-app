@@ -13,8 +13,6 @@ export default function App() {
     Utils.callApi(setData,setIsLoaded);
   },[])
 
-  console.log(data);
-
   if(!isLoaded) {
     return (
     <View style={{flex:1,justifyContent:'center', alignItems: 'center'}}>
@@ -22,10 +20,11 @@ export default function App() {
     </View>
     );
   }
+
   return (
     <View style={styles.container}>
       <Header/>
-      <Home data={data}/>
+      <Home data={data} setData={setData} setIsLoaded={setIsLoaded}/>
     </View>
   );
 }

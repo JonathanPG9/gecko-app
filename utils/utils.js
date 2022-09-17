@@ -1,4 +1,4 @@
-const callApi = async (setData,setLoading) => {
+const callApi = async (setData,setIsLoaded) => {
   let error;
   try {
     const callApi = await fetch('http://192.168.100.226:3001/api/dolar');
@@ -13,7 +13,7 @@ const callApi = async (setData,setLoading) => {
     setData(error)
   } finally {
     if (error) return;
-    setLoading(true);
+    setIsLoaded(true);
   }
 }
 
