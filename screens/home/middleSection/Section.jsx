@@ -8,7 +8,7 @@ export default function Section({data, setData, setIsLoaded}) {
 
   useEffect(() => {
     const reCalling = setInterval(() => {
-      Utils.callApi(setData,setIsLoaded);
+      Utils.callApi(true, setData, setIsLoaded, true);
     },300000);
     return () => clearInterval(reCalling);
   }, []);

@@ -6,11 +6,11 @@ import Utils from './utils/utils.js';
 
 
 export default function App() {
-  const [data,setData] = useState(),
+  const [data,setData] = useState([]),
         [isLoaded,setIsLoaded] = useState(false);
 
   useLayoutEffect(() => { 
-    Utils.callApi(setData,setIsLoaded);
+    Utils.callApi(data.length, setData, setIsLoaded, false);
   },[])
 
   if(!isLoaded) {
