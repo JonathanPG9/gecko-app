@@ -1,19 +1,19 @@
 import React, {createContext, useLayoutEffect} from 'react';
-import Utils from '../utils/utils'
+import Utils from '../utils/utils';
 
-export const DataLoad = createContext()
+export const DataLoad = createContext();
 
 const DataLoadContext = ({children, data, setData, isLoaded, setIsLoaded}) => {
 
   useLayoutEffect(() => { 
-    Utils.callApi(data.length, setData, setIsLoaded, false); 
-  },[]) 
+    Utils.callApi(data.length, setData, setIsLoaded, false);
+  },[])
 
   const dataLoadValues = {
-    data: data,
-    isLoaded: isLoaded,
-    setData: setData,
-    setIsLoaded: setIsLoaded,
+    data,
+    isLoaded,
+    setData,
+    setIsLoaded,
     callApi: Utils.callApi
   }
 
@@ -24,6 +24,4 @@ const DataLoadContext = ({children, data, setData, isLoaded, setIsLoaded}) => {
   )
 };
 
-export default DataLoadContext
-
-
+export default DataLoadContext;

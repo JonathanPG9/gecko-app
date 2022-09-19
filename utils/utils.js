@@ -1,21 +1,21 @@
-const callApi = async (hasItems,setData,setIsLoaded,condition) => {
+const callApi = async (itemLength,setData,setIsLoaded,condition) => {
 
-  if(hasItems === 0 || condition) {
-    let error;
+  if(itemLength === 0 || condition) {
+    let errorMsg;
     try {
-      const callApi = await fetch('http://192.168.100.60:3001/api/dolar'); // Comprobar IP antes de ejecutar 
-      if (callApi.status >= 400) {
-        error = 'Ha ocurrido un error'
+      const request = await fetch('http://192.168.100.60:3001/api/dolar'); // Comprobar IP antes de ejecutar
+      if (request.status >= 400) {
+        errorMsg = 'Ha ocurrido un error'
         throw new Error
       };
-      const response = await callApi.json();
+      const response = await request.json();
       setData(response);
       console.log('Data was delivered');
     } catch(err) {
       console.error(err) // Tracking Error
-      setData(error)
+      setData(errorMsg)
     } finally {
-      if (error) return;
+      if (errorMsg) return;
       setIsLoaded(true);
     }
     return;
@@ -26,5 +26,5 @@ const callApi = async (hasItems,setData,setIsLoaded,condition) => {
 }
 
 export default {
-  callApi: callApi
+  callApi
 }

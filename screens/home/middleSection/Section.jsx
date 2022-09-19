@@ -1,4 +1,4 @@
-import {FlatList, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
+import {FlatList, StyleSheet, TouchableHighlight, View } from 'react-native';
 import InfoSection from './InfoSection';
 import React,{ useEffect, useContext } from 'react';
 import Paragraph from './Paragraph';
@@ -6,11 +6,11 @@ import {DataLoad} from '../../../context/Context';
 
 export default function Section() {
 
-const {callApi, data, setData, setIsLoaded} = useContext(DataLoad)  
+const {callApi, data, setData, setIsLoaded} = useContext(DataLoad)
 
   useEffect(() => {
     const reCalling = setInterval(() => {
-      callApi(true, setData, setIsLoaded, true);
+      callApi(data.length, setData, setIsLoaded, true);
     },300000);
     return () => clearInterval(reCalling);
   }, []);
