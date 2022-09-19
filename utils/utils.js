@@ -3,8 +3,8 @@ const callApi = async (hasItems,setData,setIsLoaded,condition) => {
   if(hasItems === 0 || condition) {
     let error;
     try {
-      const callApi = await fetch('http://192.168.100.226:3001/api/dolar');
-      if (callApi.status > 400) {
+      const callApi = await fetch('http://192.168.100.60:3001/api/dolar'); // Comprobar IP antes de ejecutar 
+      if (callApi.status >= 400) {
         error = 'Ha ocurrido un error'
         throw new Error
       };

@@ -1,31 +1,26 @@
 import Home from './screens/home/Home.jsx';
-import React,{ useState, useLayoutEffect } from 'react';
+import React,{ useState} from 'react';
 import Header from './screens/header/Header.jsx';
 import {StyleSheet, View, StatusBar, Text} from 'react-native';
-import Utils from './utils/utils.js';
-
+import DataLoadContext from './context/Context.jsx';
 
 export default function App() {
   const [data,setData] = useState([]),
         [isLoaded,setIsLoaded] = useState(false);
 
-  useLayoutEffect(() => { 
-    Utils.callApi(data.length, setData, setIsLoaded, false);
-  },[])
-
-  if(!isLoaded) {
-    return (
-    <View style={{flex:1,justifyContent:'center', alignItems: 'center'}}>
-      <Text>{typeof data === 'string' ? data : 'Cargando..'}</Text>
-    </View>
-    );
-  }
-
   return (
-    <View style={styles.container}>
-      <Header/>
-      <Home data={data} setData={setData} setIsLoaded={setIsLoaded}/>
-    </View>
+    <DataLoadContext data={data} setData={setData} isLoaded={isLoaded} setIsLoaded={setIsLoaded}>
+      {!isLoaded ?
+        <View style={{flex:1,justifyContent:'center', alignItems: 'center'}}>
+          <Text>{typeof data === 'string' ? data : 'Cargando..'}</Text>
+        </View>
+        :
+        <View style={styles.container}>
+          <Header/>
+          <Home/>
+        </View>
+      } 
+    </DataLoadContext>
   );
 }
 const styles = StyleSheet.create({
@@ -35,3 +30,6 @@ const styles = StyleSheet.create({
     marginTop:StatusBar.currentHeight
   },
 });
+
+
+// AGREGAR COMPONENTE WRAPPER PARA CONTENER A TODOS LOS HIJOS + LÓGICA DE APP
