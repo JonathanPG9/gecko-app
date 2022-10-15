@@ -24,7 +24,7 @@ const {callApi, data, setData, setIsLoaded} = useContext(DataLoad)
         <TouchableHighlight>
           <View style={styles.s_v}>
             <View style={styles.s_t}>
-              <Paragraph itemTipo={'DOLAR ' + item.t.toUpperCase()}/>
+              <Paragraph itemTipo={item.t.toUpperCase()}/>
               <Paragraph itemAct={item.d}/>
             </View>
             <InfoSection compra='COMPRA' valor={item.c}/>
